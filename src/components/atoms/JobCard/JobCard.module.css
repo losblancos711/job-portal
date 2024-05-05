@@ -1,0 +1,28 @@
+.jobCard {
+  width: 31%;
+  margin: 0 0px 30px 25px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px 0px !important;
+  overflow: hidden;
+  max-width: 360px;
+  border-radius: 20px !important;
+  position: relative;
+  transition: ease-in cubic-bezier(0.95, 0.05, 0.795, 0.035);
+}
+
+.gradient {
+  position: absolute;
+  z-index: 10;
+  background: linear-gradient(
+    rgba(255, 255, 255, 50%),
+    rgb(255, 255, 255),
+    rgb(255, 255, 255)
+  );
+  width: 100%;
+  bottom: 0;
+  padding: 10px 25px;
+}
+
+.gradient.relative {
+  position: relative;
+  transition: ease-in-out all 2ms;
+}
