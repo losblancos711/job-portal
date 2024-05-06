@@ -14,7 +14,7 @@ import {
 } from "../../../store/filter/filterSlice";
 import { useState } from "react";
 import { AvailableFilters } from "../../../schema/filter";
-import { IconButton, Input } from "@mui/material";
+import { IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import styles from "./MultipleSelectChip.module.css";
 

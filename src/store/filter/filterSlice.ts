@@ -17,7 +17,6 @@ export interface FilterState {
   updateSelectedLocations: (loc?: string[]) => void;
   updateSelectedWorkMode: (mode?: WorkMode) => void;
   updateSelectedMinBasePay: (pay?: string) => void;
-  updateSelectedCompanyName: (name?: string) => void;
   updateSelectedMinExperience: (exp?: string) => void;
   setSearchKey: (key?: string) => void;
   setFilteredJobs: (filteredJobs?: Job[]) => void;
@@ -30,7 +29,6 @@ const initialState: FilterState = {
   updateSelectedLocations: () => undefined,
   updateSelectedWorkMode: () => undefined,
   updateSelectedMinBasePay: () => undefined,
-  updateSelectedCompanyName: () => undefined,
   updateSelectedMinExperience: () => undefined,
   setSearchKey: () => undefined,
   setFilteredJobs: () => undefined,
@@ -45,9 +43,6 @@ const filterSlice = createSlice({
     },
     updateSelectedMinExperience: (state, action) => {
       state.selectedMinExperience = action.payload;
-    },
-    updateSelectedCompanyName: (state, action) => {
-      state.selectedCompanyName = action.payload;
     },
     updateSelectedLocations: (state, action) => {
       state.selectedLocations = action.payload;
@@ -87,7 +82,6 @@ const filterSlice = createSlice({
 });
 
 export const {
-  updateSelectedCompanyName,
   updateSelectedLocations,
   updateSelectedMinBasePay,
   updateSelectedMinExperience,

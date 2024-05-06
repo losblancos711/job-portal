@@ -32,7 +32,7 @@ export const filterJobs = (
   if (allAppliedFilters?.includes(AvailableFilters.MINBASEPAY)) {
     allFilteredJobs = allFilteredJobs?.filter((job) =>
       filters?.selectedMinBasePay && job?.minJdSalary
-        ? filters?.selectedMinBasePay >= job?.minJdSalary
+        ? +job.minJdSalary >= +filters.selectedMinBasePay
         : undefined
     );
   }

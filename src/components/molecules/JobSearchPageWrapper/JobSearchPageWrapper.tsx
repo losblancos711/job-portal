@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { JobSearchPage } from "../JobSerachPage/JobSearchPage";
-import { Job } from "../../../schema/Job";
 import { RootState } from "../../../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { setFilteredJobs } from "../../../store/filter/filterSlice";
 import { setJobs } from "../../../store/jobs/jobSlice";
+import { Job } from "../../../schema/job";
 
 export const JobSearchPageWrapper = () => {
   const dispatch = useDispatch();

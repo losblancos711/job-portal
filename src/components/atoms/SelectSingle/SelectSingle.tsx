@@ -30,7 +30,7 @@ export default function SelectSingle({
   const { jobs } = useSelector((state: RootState) => state.jobs);
   const dispatch = useDispatch();
 
-  const computeDispatchFns = (values: string | number, clearAll?: boolean) => {
+  const computeDispatchFns = (values: number, clearAll?: boolean) => {
     clearAll && setValue("");
     switch (name) {
       case AvailableFilters.MINBASEPAY:
@@ -46,8 +46,11 @@ export default function SelectSingle({
   };
   const handleChange = (event: SelectChangeEvent) => {
     setValue(event.target.value as string);
-    computeDispatchFns(event?.target?.value?.toString()?.replace("L", ""));
+    const val = event?.target?.value?.toString()?.replace("L", "");
+    console.log(val, typeof +val);
+    computeDispatchFns(+val);
   };
+
   return (
     <Box sx={{ minWidth: 110, mt: 1 }}>
       <FormControl fullWidth>

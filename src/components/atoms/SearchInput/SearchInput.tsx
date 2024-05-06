@@ -18,7 +18,7 @@ export const SearchInput = () => {
     setTimeout(() => {
       dispatch(setSearchKey(key));
       dispatch(setFilteredJobs(jobs));
-    }, 500);
+    }, 2000);
   };
   return (
     <div style={{ marginTop: inputVal ? "8px" : "23px", marginLeft: "5px" }}>

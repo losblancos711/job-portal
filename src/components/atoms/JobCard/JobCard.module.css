@@ -9,6 +9,10 @@
   transition: ease-in cubic-bezier(0.95, 0.05, 0.795, 0.035);
 }
 
+.jobCardContent {
+  padding: 5px;
+}
+
 .gradient {
   position: absolute;
   z-index: 10;
@@ -17,7 +21,7 @@
     rgb(255, 255, 255),
     rgb(255, 255, 255)
   );
-  width: 100%;
+  width: 86%;
   bottom: 0;
   padding: 10px 25px;
 }
@@ -25,4 +29,84 @@
 .gradient.relative {
   position: relative;
   transition: ease-in-out all 2ms;
+}
+
+.company {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.companyInfo {
+  padding-left: 10px;
+}
+
+.companyInfo a {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #8b8b8b !important;
+  margin-bottom: 0;
+  text-decoration: none;
+}
+.companyInfo a:hover {
+  text-decoration: underline;
+}
+
+.companyInfo h2 {
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 0;
+  margin-top: 4px;
+}
+
+.companyInfo p {
+  font-size: 11px;
+  font-weight: 500;
+  margin-top: 4px;
+}
+.companyInfo p:last-child {
+  margin-bottom: 0;
+}
+.salary p {
+  font-weight: 300;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.companyDetails p:nth-child(2) {
+  font-weight: 600;
+  white-space: pre-wrap;
+  font-size: 14px;
+}
+
+.companyDetails p:nth-child(3) {
+  font-weight: 300;
+  white-space: pre-wrap;
+  font-size: 14px;
+  margin-top: 0;
+}
+
+.gradient button:first-child {
+  text-align: center;
+}
+
+.gradient p {
+  margin-top: 0;
+}
+
+.gradient .applyBtn {
+  width: 100%;
+  background-color: rgb(85, 239, 196);
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  padding: 8px 18px;
+  text-align: center;
+  margin-bottom: 7px;
+  border-radius: 8px;
+  letter-spacing: 0.02857em;
+  text-transform: capitalize;
+  font-size: 16px;
+  line-height: 1.75;
 }
