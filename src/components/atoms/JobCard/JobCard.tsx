@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
-import { Job } from "../../../schema/job";
+import { Job } from "../../../schema/Job";
 
 export interface JobCardProps {
   job?: Job;

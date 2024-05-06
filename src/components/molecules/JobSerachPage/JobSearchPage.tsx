@@ -1,12 +1,13 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { JobCard } from "../../atoms/JobCard/JobCard";
 import styles from "./JobSearchPage.module.css";
-import { Job } from "../../../schema/Job";
 import { CircularProgress } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { setJobs } from "../../../store/jobs/jobSlice";
+import { JobFilter } from "../JobFilter/JobFilter";
 import { setFilteredJobs } from "../../../store/filter/filterSlice";
+import { Job } from "../../../schema/job";
+import { JobCard } from "../../atoms/JobCard/JobCard";
 
 interface Header {
   limit: number;
@@ -16,6 +17,9 @@ interface Header {
 export const JobSearchPage = () => {
   const { jobs } = useSelector((state: RootState) => state.jobs);
   const [jobData, setJobData] = useState<Job[]>(jobs || []);
+  const { filteredJobs, hasFilters } = useSelector(
+    (state: RootState) => state.filters
+  );
   const headers: Header = { limit: 6, offset: jobData.length };
   const [loading, setLoading] = useState(false);
   let loaderRef = useRef<HTMLDivElement>(null);
@@ -52,7 +56,7 @@ export const JobSearchPage = () => {
   useEffect(() => {
     const observer = new IntersectionObserver((elements) => {
       const target = elements[elements.length - 1];
-      if (target.isIntersecting) {
+      if (target.isIntersecting && !hasFilters) {
         fetchJobs();
       }
     });
@@ -64,12 +68,13 @@ export const JobSearchPage = () => {
         observer.unobserve(loaderRef.current);
       }
     };
-  }, []);
+  }, [hasFilters]);
 
   return (
     <>
+      <JobFilter />
       <div className={`${styles.jobList}`}>
-        {jobs?.map((jd) => {
+        {(hasFilters ? filteredJobs : jobs)?.map((jd) => {
           return <JobCard key={jd?.jdUid} job={jd} />;
         })}
       </div>

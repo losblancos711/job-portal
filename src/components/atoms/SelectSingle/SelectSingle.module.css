@@ -1,0 +1,60 @@
+.singleSel {
+  font-size: 16px;
+  min-height: 38px;
+  transition: all 100ms ease 0s;
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(204, 204, 204);
+  border-radius: 4px;
+  border-width: 0px;
+  box-sizing: border-box;
+  outline: 0px !important;
+
+  position: relative;
+}
+
+.singleSel::after {
+  content: "";
+  position: absolute;
+  right: 36px;
+  width: 1px;
+  height: 20px;
+  background-color: rgb(204, 204, 204);
+}
+
+.menuItem {
+  padding: 5px 10px 0 10px;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.singleSel div[role="combobox"] {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 5px 10px 5px 10px;
+}
+
+.delIcon {
+  position: absolute !important;
+  right: 52px;
+  top: 31px;
+  z-index: 10000;
+  color: rgb(204, 204, 204);
+  position: absolute !important;
+  width: 10px !important;
+  height: 10px !important;
+  background: none !important;
+}
+
+.delIcon:hover {
+  color: rgb(153, 153, 153) !important;
+  background: none !important;
+}
+.searchInput {
+  margin-left: 3px !important;
+}
+
+.searchInput input {
+  height: 38px !important;
+  padding: 0px 10px 0px 10px;
+  font-size: 12px !important;
+}

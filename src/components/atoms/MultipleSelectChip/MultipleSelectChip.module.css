@@ -1,0 +1,62 @@
+.multipleSel {
+  font-size: 12px;
+  height: 38px !important;
+  transition: all 100ms ease 0s;
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(204, 204, 204);
+  border-radius: 4px;
+  border-width: 0px;
+  box-sizing: border-box;
+  min-width: 150px;
+  outline: 0px !important;
+  padding-left: 5px;
+  position: relative;
+}
+
+.multipleSel::after {
+  content: "";
+  position: absolute;
+  right: 36px;
+  width: 1px;
+  height: 20px;
+  background-color: rgb(204, 204, 204);
+}
+
+.menuItem {
+  padding: 5px 10px 0 10px !important;
+  font-size: 14px !important;
+  text-transform: capitalize;
+}
+
+.multipleSel div[role="combobox"] {
+  font-size: 12px;
+  max-height: 38px !important;
+  padding: 0 5px 0 5px !important;
+}
+
+.chips {
+  z-index: 10000;
+  font-size: 12px !important;
+  padding: 5px 0px 5px 0px !important;
+  margin-top: 0;
+  border-radius: 1px !important;
+  min-height: auto !;
+  height: 20px !important;
+  text-transform: capitalize;
+}
+
+.delIcon {
+  position: absolute !important;
+  right: 52px;
+  top: 15px;
+  width: 10px !important;
+  height: 10px !important;
+  z-index: 10000;
+  color: rgb(204, 204, 204);
+  background: none !important;
+}
+
+.delIcon:hover {
+  color: rgb(153, 153, 153);
+  background: none;
+}

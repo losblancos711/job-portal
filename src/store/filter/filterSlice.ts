@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { AvailableFilters, WorkMode } from "../../schema/filter";
+import { filterJobs } from "../../helpers/filterJobs";
+import { WorkMode, AvailableFilters } from "../../schema/filter";
 import { Job } from "../../schema/job";
 
 export interface FilterState {
@@ -78,7 +79,9 @@ const filterSlice = createSlice({
         allAppliedFilters.push(AvailableFilters.SEARCH);
       }
       state.hasFilters = allAppliedFilters.length >= 1;
-      state.filteredJobs = action.payload;
+      state.filteredJobs = allAppliedFilters?.length
+        ? filterJobs(action.payload, state, allAppliedFilters)
+        : state.filteredJobs;
     },
   },
 });
