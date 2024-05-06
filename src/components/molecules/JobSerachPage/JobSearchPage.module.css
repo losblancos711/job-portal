@@ -1,0 +1,8 @@
+.jobList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}

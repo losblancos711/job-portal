@@ -1,10 +1,16 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { JobCard } from "../../atoms/JobCard/JobCard";
-import { Job } from "../../../schema/job";
+import { JobSearchPage } from "../JobSerachPage/JobSearchPage";
+import { Job } from "../../../schema/Job";
+import { RootState } from "../../../store/store";
+import { useDispatch, useSelector } from "react-redux";
+import { setFilteredJobs } from "../../../store/filter/filterSlice";
+import { setJobs } from "../../../store/jobs/jobSlice";
 
 export const JobSearchPageWrapper = () => {
-  const [jobData, setJobData] = useState<Job[]>([]);
+  const dispatch = useDispatch();
+  const { jobs } = useSelector((state: RootState) => state.jobs);
   const [loading, setLoading] = useState(false);
+
   const fetchJobs = useCallback(async () => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -24,21 +30,18 @@ export const JobSearchPageWrapper = () => {
       .then((response) => response.text())
       .then((data) => {
         const res: Job[] = JSON.parse(data)?.jdList;
-        setJobData(res);
+        dispatch(setJobs(res));
+        dispatch(setFilteredJobs(res));
         setLoading(false);
       })
       .catch((error) => console.error(error));
   }, []);
 
   useEffect(() => {
-    fetchJobs();
+    if (jobs?.length && jobs.length < 6) {
+      fetchJobs();
+    }
   }, []);
 
-  return (
-    <div>
-      {jobData?.map((jd) => (
-        <JobCard job={jd} />
-      ))}
-    </div>
-  );
+  return !loading && <JobSearchPage />;
 };
