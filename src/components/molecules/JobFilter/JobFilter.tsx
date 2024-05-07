@@ -15,6 +15,7 @@ export const JobFilter = () => {
       <SelectSingle
         name={AvailableFilters.MINEXPERIENCE}
         menuItems={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+        minWidth={125}
         label="Experience"
       />
       <MultipleSelectChip
@@ -32,6 +33,7 @@ export const JobFilter = () => {
       <SelectSingle
         name={AvailableFilters.MINBASEPAY}
         menuItems={[5, 10, 20, 30, 40, 50, 60, 70]}
+        minWidth={185}
         label="Minimum Base Salary"
       />
       <SearchInput />

@@ -21,9 +21,11 @@ export const SearchInput = () => {
     }, 2000);
   };
   return (
-    <div style={{ marginTop: inputVal ? "8px" : "23px", marginLeft: "5px" }}>
+    <div style={{ marginTop: inputVal ? "8px" : "24px", marginLeft: "5px" }}>
       {inputVal ? (
-        <div style={{ fontSize: "13px", fontWeight: 500 }}>Search</div>
+        <div style={{ fontSize: "13px", fontWeight: 500 }}>
+          Search Company Name
+        </div>
       ) : (
         ""
       )}

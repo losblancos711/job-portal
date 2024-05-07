@@ -74,7 +74,6 @@ export const JobSearchPage = () => {
     <>
       <JobFilter />
       <div className={`${styles.jobList}`}>
-        {hasFilters && !filteredJobs?.length && "Nothing found!"}
         {(hasFilters ? filteredJobs : jobs)?.map((jd) => {
           return <JobCard key={jd?.jdUid} job={jd} />;
         })}

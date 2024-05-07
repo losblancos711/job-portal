@@ -14,17 +14,20 @@ import { RootState } from "../../../store/store";
 import { IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import styles from "./SelectSingle.module.css";
+import { KeyboardArrowDown } from "@mui/icons-material";
 
 export interface SelectSingleProps {
   menuItems: string[] | number[];
   label?: string;
   name: string;
+  minWidth?: number;
 }
 
 export default function SelectSingle({
   menuItems,
   label,
   name,
+  minWidth,
 }: SelectSingleProps) {
   const [value, setValue] = React.useState("");
   const { jobs } = useSelector((state: RootState) => state.jobs);
@@ -47,26 +50,35 @@ export default function SelectSingle({
   const handleChange = (event: SelectChangeEvent) => {
     setValue(event.target.value as string);
     const val = event?.target?.value?.toString()?.replace("L", "");
-    console.log(val, typeof +val);
     computeDispatchFns(+val);
   };
 
   return (
-    <Box sx={{ minWidth: 110, mt: 1 }}>
+    <Box
+      sx={{
+        minWidth: minWidth,
+        mt: !value ? "24px" : 1,
+      }}
+    >
       <FormControl fullWidth>
-        <div
-          style={{
-            fontSize: "13px",
-            fontWeight: 500,
-            textAlign: "left",
-            marginTop: value ? 0 : "16px",
-          }}
-        >
-          {value ? label : ""}
-        </div>
+        {!value ? (
+          <div className={styles.placeholder}> {label}</div>
+        ) : (
+          <div
+            style={{
+              fontSize: "13px",
+              fontWeight: 500,
+              textAlign: "left",
+              marginTop: value ? 0 : "16px",
+            }}
+          >
+            {label}
+          </div>
+        )}
+
         {value ? (
           <IconButton
-            onClick={() => computeDispatchFns("", true)}
+            onClick={() => computeDispatchFns(-1, true)}
             aria-label="delete"
             size="small"
             className={styles.delIcon}
@@ -82,6 +94,7 @@ export default function SelectSingle({
           className={styles.singleSel}
           value={value}
           onChange={handleChange}
+          IconComponent={KeyboardArrowDown}
         >
           {menuItems.map((item, i) => {
             return (

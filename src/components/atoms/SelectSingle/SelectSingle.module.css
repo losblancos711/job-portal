@@ -58,3 +58,15 @@
   padding: 0px 10px 0px 10px;
   font-size: 12px !important;
 }
+
+.placeholder {
+  font-size: 13px;
+  font-weight: 500;
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  z-index: 10000;
+  opacity: 0.4;
+  font-weight: 400;
+  font-size: 12px;
+}

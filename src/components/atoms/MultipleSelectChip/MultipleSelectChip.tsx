@@ -14,9 +14,10 @@ import {
 } from "../../../store/filter/filterSlice";
 import { useState } from "react";
 import { AvailableFilters } from "../../../schema/filter";
-import { IconButton } from "@mui/material";
+import { Icon, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import styles from "./MultipleSelectChip.module.css";
+import { KeyboardArrowDown } from "@mui/icons-material";
 
 export interface MultipleSelectChipProps {
   selectValues: string[];
@@ -62,8 +63,18 @@ export default function MultipleSelectChip({
 
   return (
     <div>
-      <FormControl sx={{ m: 1, minWidth: 160 }}>
-        <div style={{ fontSize: "13px", fontWeight: 500 }}>{label}</div>
+      <FormControl
+        sx={{
+          m: 1,
+          mt: !showMenu && !selectedChips.length ? "24px" : 1,
+          minWidth: 160,
+        }}
+      >
+        {!showMenu && !selectedChips.length ? (
+          <div className={styles.placeholder}>{label}</div>
+        ) : (
+          <div style={{ fontSize: "13px", fontWeight: 500 }}>{label}</div>
+        )}
         <Select
           style={{ paddingRight: "80px" }}
           className={styles.multipleSel}
@@ -71,6 +82,7 @@ export default function MultipleSelectChip({
           name={name}
           value={selectedChips}
           onChange={handleChange}
+          IconComponent={KeyboardArrowDown}
           input={
             <OutlinedInput
               onClick={() => {
