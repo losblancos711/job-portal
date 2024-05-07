@@ -47,6 +47,7 @@ export default function SelectSingle({
     }
     dispatch(setFilteredJobs(jobs));
   };
+
   const handleChange = (event: SelectChangeEvent) => {
     setValue(event.target.value as string);
     const val = event?.target?.value?.toString()?.replace("L", "");
