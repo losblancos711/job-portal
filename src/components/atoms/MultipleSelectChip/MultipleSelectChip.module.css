@@ -25,6 +25,7 @@
 .menuItem {
   padding: 5px 10px 0 10px !important;
   font-size: 14px !important;
+  z-index: 10002;
   text-transform: capitalize;
 }
 
@@ -67,8 +68,25 @@
   position: absolute;
   top: 12px;
   left: 10px;
-  z-index: 10000;
+  z-index: 1000;
   opacity: 0.4;
   font-weight: 400;
   font-size: 12px;
+}
+
+.multipleSelContainer {
+  margin: 18px;
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .multipleSel div[role="combobox"] {
+    margin-left: 0px !important;
+    margin-right: 0 !important;
+  }
+  .multipleSelContainer {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+  }
 }

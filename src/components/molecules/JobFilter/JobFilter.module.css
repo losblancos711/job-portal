@@ -1,0 +1,11 @@
+.jobFilter {
+  display: flex !important;
+  margin: 25px 0 50px 15px;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 768px) {
+  .jobFilter {
+    margin-left: 0;
+  }
+}

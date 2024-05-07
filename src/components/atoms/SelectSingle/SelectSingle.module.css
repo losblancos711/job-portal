@@ -25,6 +25,7 @@
   padding: 5px 10px 0 10px;
   font-size: 14px;
   text-transform: capitalize;
+  z-index: 10002;
 }
 
 .singleSel div[role="combobox"] {
@@ -65,8 +66,14 @@
   position: absolute;
   top: 12px;
   left: 10px;
-  z-index: 10000;
+  z-index: 1000;
   opacity: 0.4;
   font-weight: 400;
   font-size: 12px;
+}
+
+@media only screen and (max-width: 768px) {
+  .searchInput {
+    margin-left: 0px !important;
+  }
 }

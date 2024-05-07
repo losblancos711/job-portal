@@ -65,10 +65,11 @@ export default function MultipleSelectChip({
     <div>
       <FormControl
         sx={{
-          m: 1,
+          //   m: 1,
           mt: !showMenu && !selectedChips.length ? "24px" : 1,
           minWidth: 160,
         }}
+        className={styles.multipleSelContainer}
       >
         {!showMenu && !selectedChips.length ? (
           <div className={styles.placeholder}>{label}</div>

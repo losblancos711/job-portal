@@ -3,10 +3,11 @@ import { AvailableFilters } from "../../../schema/filter";
 import MultipleSelectChip from "../../atoms/MultipleSelectChip/MultipleSelectChip";
 import { SearchInput } from "../../atoms/SearchInput/SearchInput";
 import SelectSingle from "../../atoms/SelectSingle/SelectSingle";
+import style from "./JobFilter.module.css";
 
 export const JobFilter = () => {
   return (
-    <div style={{ display: "flex", margin: "25px 0 50px 15px" }}>
+    <div className={style.jobFilter}>
       <MultipleSelectChip
         name={AvailableFilters.ROLE}
         label="Roles"
