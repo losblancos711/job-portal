@@ -2,6 +2,8 @@ import { AvailableFilters } from "../schema/filter";
 import { Job } from "../schema/job";
 import { FilterState } from "../store/filter/filterSlice";
 
+// Function to filter jobs based on the selected filters
+
 export const filterJobs = (
   jobs?: Job[],
   filters?: FilterState,

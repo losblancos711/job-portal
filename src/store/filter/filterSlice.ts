@@ -3,6 +3,8 @@ import { filterJobs } from "../../helpers/filterJobs";
 import { WorkMode, AvailableFilters } from "../../schema/filter";
 import { Job } from "../../schema/job";
 
+// Filter state management
+
 export interface FilterState {
   filteredJobs?: Job[];
   selectedRoles?: string[];

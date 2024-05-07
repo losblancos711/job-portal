@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { Job } from "../../schema/job";
 
+// Jobs state management
 export interface JobSearchState {
   jobs?: Job[];
   setJobs: (jobs?: Job[]) => void;

@@ -7,10 +7,12 @@ import { setJobs } from "../../../store/jobs/jobSlice";
 import { Job } from "../../../schema/job";
 
 export const JobSearchPageWrapper = () => {
+  // accessing state from redux store
   const dispatch = useDispatch();
   const { jobs } = useSelector((state: RootState) => state.jobs);
   const [loading, setLoading] = useState(false);
 
+  // asyncronous function for fetching jobs - only runs on first paint and loads the initial 6 jobs.
   const fetchJobs = useCallback(async () => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");

@@ -14,17 +14,23 @@ interface Header {
   offset: number;
 }
 
+// Main page of this application, it renders three components - Filter, loader and Job cards.
+
 export const JobSearchPage = () => {
+  // accessing state from redux store
+  const dispatch = useDispatch();
   const { jobs } = useSelector((state: RootState) => state.jobs);
   const [jobData, setJobData] = useState<Job[]>(jobs || []);
   const { filteredJobs, hasFilters } = useSelector(
     (state: RootState) => state.filters
   );
+
   const headers: Header = { limit: 6, offset: jobData.length };
+
   const [loading, setLoading] = useState(false);
   let loaderRef = useRef<HTMLDivElement>(null);
 
-  const dispatch = useDispatch();
+  // asyncronous function for fetching jobs on page scroll - inifite scrolling
   const fetchJobs = useCallback(async () => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -54,6 +60,7 @@ export const JobSearchPage = () => {
   }, []);
 
   useEffect(() => {
+    // Implementation of infinite scrolling with IntersectionObserver web api
     const observer = new IntersectionObserver((elements) => {
       const target = elements[elements.length - 1];
       if (target.isIntersecting && !hasFilters) {
